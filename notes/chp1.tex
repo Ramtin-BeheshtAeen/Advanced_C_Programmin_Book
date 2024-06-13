@@ -9,7 +9,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
 \usepackage{newunicodechar}
-
+%Package import:
+\usepackage{import}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -25,8 +26,8 @@
 
 \lstset{frame=tb,
   language=C,
-  aboveskip=3mm,
-  belowskip=3mm,
+  aboveskip=2mm,
+  belowskip=2mm,
   showstringspaces=false,
   columns=flexible,
   basicstyle={\small\ttfamily},
@@ -37,7 +38,7 @@
   stringstyle=\color{mauve},
   breaklines=true,
   breakatwhitespace=true,
-  tabsize=3
+  tabsize=2
 }
 
 
@@ -53,223 +54,12 @@
 \part{ Basic C Data Structures, Pointers, and File Systems}
 \chapter{Basic C Data Structures}
 
-\section{Arrays}
-\subsection{Concepts}
-
-In C: Array is a collection of consecutive objects with same data type
-\begin{itemize}
-    \item Array is a variable
-    \item Array has a data type and name with square bracket
-    \item Within the brackets are the number of elements in the array
+\import{./}{01_01_array.tex}
+\import{./}{01_02_structure.tex}
 
 
-    \begin{lstlisting}
-        
-    float best_score[3] = {
-        1.1, 2.1, 3.1, 4.1
-    };
-
-    \end{lstlisting}
-
-    \item In C Arrays are non dynamic it means that their size be altered as the program runs.
-    \item Arrays in C have no bounds checking, so it is possible to reference an element, which is not exist. calling element outside the Array declaration
-    \item Arrays have a lot in commons with pointers
-    \item It is possible to declare an arrays length as the program runs but it is mostly avoided, so jest set the value in the code and know that it can not be increased when program runs
-    \end{itemize}
-    \break
-    \break
-    
-      \subsubsection{Dynamic Arrays}
-      Example of declare an array with use of pointers and still set its length at runtime:
-      \begin{itemize}
-      \item Code:
-      \begin{lstlisting}
-        
-        
-        printf("Enter the size of the Array: ");
-        scanf("%d",&arraySize);
-
-        // Dynamically allocate memory for the array
-        myArray = (int *)malloc(arraySize * sizeof(int));
-
-        //Checking wheter rhe memory allocation was successful or not:
-        if(myArray == NULL) {
-                fprintf(stderr, "Memory allocation failed\n");
-                return 1;
-        }
-
-        //Initialize array with values:
-        for(int i = 0; i < arraySize; i++) {
-                myArray[i] = i * i;
-        }
-
-        //Print Arrays Values
-        for (int i = 0; i < arraySize; i++){
-                printf("myArray[%d] = %d\n",i, myArray[i]);
-        }
-
-        //Free the allocated memory
-        free(myArray);
-
-        return 0;
-        }
-    
-      \end{lstlisting}
-      \item Compile result:
-      \begin{lstlisting}
-        Enter the size of the Array: 10
-        myArray[0] = 0
-        myArray[1] = 1
-        myArray[2] = 4
-        myArray[3] = 9
-        myArray[4] = 16
-        myArray[5] = 25
-        myArray[6] = 36
-        myArray[7] = 49
-        myArray[8] = 64
-        myArray[9] = 81
-      \end{lstlisting}
-      In this code, arraySize is determined at runtime based on the user’s input. The malloc function is used to allocate the required amount of memory. It’s important to free the allocated memory with free when you’re done using the dynamically allocated array to prevent memory leaks.
-      Keep in mind that dynamic memory allocation allows for flexible array sizes, but it also requires careful management of the allocated memory.
-
-
-
-      Example of declare an array with out useing pointers and still set its length at runtime(Using  Variable Length Arrays (VLA)):
-      \begin{lstlisting}
-        #include <stdio.h>
-
-        int main(){
-                int arraySize;
-        
-                //Ask the user for the array size:
-                printf("Enter the size of the array: ");
-                scanf("%d", &arraySize);
-        
-                //declare VLA based on the user input:
-                int myArray[arraySize];
-        
-                //Intitialize array with values
-                for (int i = 0; i < arraySize; i++){
-                        myArray[i] = i * i;
-                }
-        
-                //Print array values:
-                for (int i = 0; i < arraySize; i++){
-                        printf("myArray[%d] = %d\n", i, myArray[i]);
-                }
-        
-                return 0;
-        }
-      \end{lstlisting}
-      \item Compile result:
-      \begin{lstlisting}
-        Enter the size of the Array: 5
-        myArray[0] = 0
-        myArray[1] = 1
-        myArray[2] = 4
-        myArray[3] = 9
-        myArray[4] = 16
-      \end{lstlisting}
-      In this code, myArray is a VLA whose size arraySize is determined by the user input at runtime. No pointers are used, and the array is directly accessed by its indices.
-      Keep in mind that not all compilers support VLAs, and their use is controversial due to potential risks such as stack overflow. Also, VLAs are not part of the ISO C++ standard, so they are not portable across all platforms or languages. For these reasons, dynamic memory allocation with pointers is generally preferred for arrays with sizes determined at runtime.
-    \end{itemize} 
-
-
-
-
- 
-   
-% \begin{itemize}    
-%     \item NoSuchFieldException : It is thrown when a class does not contain the field (or variable) specified.
-    
-    
-%     \item ClassNotFoundException :This Exception is raised when we try to access a class whose definition is not found
-    
-%     \item NoSearchMethodException : It is thrown when accessing a method which is not found.
-% \end{itemize}
-
-
-\subsection{Working With Arrays}
-\subsubsection{dublicating an array}
-\begin{itemize}
-  \item In this code the process of duplicated an array is demonstrated:
-  \item[⚠] Note: Duplicate must have the same or greater number of elements.(We as an Programmer must enforce this rule, because Compile wont check it)
-\begin{lstlisting}
-  #include <stdio.h>
-
-int main(){
-        int original_array[5] = {10, 20, 30, 40, 50};
-        int duplicate[5];
-
-        for ( int i = 0; i < 5; i++){
-                duplicate[i] = original_array[i];
-        }
-
-        puts("Arrays Values \n");
-
-        for ( int j = 0; j < 5; j++ ){
-                printf("Element#%d %3d == %3d \n", j, original_array[j], duplicate[j]);
-        }
-
-
-}
-\end{lstlisting}
-\item Compile Result:
-\begin{lstlisting}
-  Arrays Values
-
-  Element#0  10 ==  10
-  Element#1  20 ==  20
-  Element#2  30 ==  30
-  Element#3  40 ==  40
-  Element#4  50 ==  50
-\end{lstlisting}
-
-\end{itemize}
-
-
-\subsection{Passing an array to an function}
-
-
-\subsubsection{passing the whole array}
-\subsubsection{passing the arrays elements individually}
-
-\begin{itemize}
-  \item Code:
-\begin{lstlisting}
-#include <stdio.h>
-
-void print_arrays_char( char a ){
-        a++;
-        putchar(a);
-}
-
-int main(){
-        char text[] = "Gdkkn";
-
-        for( int x = 0; x < 6; x++ ){
-                print_arrays_char(text[x]);
-        }
-        putchar('\n');
-}
-\end{lstlisting}
-\item Compile Result:
-\begin{lstlisting}
-Hello
-\end{lstlisting}
-\end{itemize}
-
-
-
-
-
-\subsection{Multi-Dimensional Array}
-\section{Structure}
-\subsection{Concepts}
-\subsection{Nesting an Structure}
-\subsection{Array of Structure}
-\subsection{Sending a Structure to a function}
 \section{Union}
+\section{Chapter Exercises}
 
 
 \end{document}

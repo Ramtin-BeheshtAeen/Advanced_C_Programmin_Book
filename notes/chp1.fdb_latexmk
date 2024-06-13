@@ -1,6 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1717964533 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/chp1.tex" "chp1.pdf" "chp1" 1717964535 0
-  "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/chp1.tex" 1717964532 7631 aa7af1c77d220b0963037246de1d3804 ""
+["pdflatex"] 1718307597 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/chp1.tex" "chp1.pdf" "chp1" 1718307600 0
+  "./01_01_array.tex" 1718305944 12501 424f0e3964a88803266718580403d383 ""
+  "./01_02_structure.tex" 1718307594 2280 55e0100e6d67767ee235b7ff49338427 ""
+  "01_01_array.tex" 1718305944 12501 424f0e3964a88803266718580403d383 ""
+  "01_02_structure.tex" 1718307594 2280 55e0100e6d67767ee235b7ff49338427 ""
+  "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/chp1.tex" 1718306427 1219 d418d08b75c17763af21d0198ccaaff3 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1699530341 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1699530739 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1699530571 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -39,6 +43,7 @@
   "c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty" 1699530838 7233 e46ce9241d2b2ca2a78155475fdd557a ""
   "c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty" 1699530838 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1699530838 2885 9c645d672ae17285bba324998918efd8 ""
+  "c:/texlive/2023/texmf-dist/tex/latex/import/import.sty" 1699530977 6201 0ad8b5da8e12f60a88d546b2198a56f2 ""
   "c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1699531086 30429 213676d4c7327a21d91ddaed900e7b81 ""
   "c:/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg" 1699531191 1829 d8258b7d94f5f955e70c623e525f9f45 ""
   "c:/texlive/2023/texmf-dist/tex/latex/listings/listings.sty" 1699531191 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
@@ -50,8 +55,8 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1699532678 4662804 27f73c2f767ae4579fe38abe9088e726 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1699532905 7883444 2d716de46b63348958936deb32878448 ""
   "c:/texlive/2023/texmf.cnf" 1699532638 713 e69b156964470283e0530f5060668171 ""
-  "chp1.aux" 1717964535 1979 59039535b411b3512aa584ee3827ef0e "pdflatex"
-  "chp1.tex" 1717964532 7631 aa7af1c77d220b0963037246de1d3804 ""
+  "chp1.aux" 1718307599 2534 ff396bd64c588209caa8e1f6b4809369 "pdflatex"
+  "chp1.tex" 1718306427 1219 d418d08b75c17763af21d0198ccaaff3 ""
   (generated)
   "chp1.aux"
   "chp1.log"
