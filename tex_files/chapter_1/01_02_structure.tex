@@ -1,0 +1,578 @@
+\section{Structure}
+\subsection{Concepts}
+
+\begin{itemize}
+    \item A structure is a container of multiple variable types.
+    \item The variables can be different data types, the same data type, or mixed and matched in various quantities.
+    \item All the variables relate to each other or describe a complex data structure like record of a Database.
+    \item The key word `Struct` will declare a structure, which is followed by name of the Structure and set of the {}.
+    \item For using the structure we should define a variable with type of Struct
+    \item Structure members can be accessed by using the structure varibale name, a dot and the name of the member(e.g, line 16 in Example)        
+    \item Example Code:
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+
+struct animal {
+        int id;
+        int life_span;
+        char sound[20];
+        char class[10];
+} ;
+          
+int main(){
+          
+    struct animal german_shepherd;
+    struct animal chinchilla_persians;
+
+    german_shepherd.id = 31415;
+    german_shepherd.life_span = 20;
+    //german_shepherd.sound = "Bark";
+    strcpy(german_shepherd.sound,"Bark");
+    //german_shepherd.class = "Dog"
+    strcpy(german_shepherd.class,"Dog")
+
+    chinchilla_persians.id = 31416 ;
+    chinchilla_persians.life_span = 10;
+    //chinchilla_persians.sound = "Meow";
+    strcpy(chinchilla_persians.sound,"Meow");
+    //chinchilla_persians.class = "Cat";
+    strcpy(chinchilla_persians.class,"Cat");
+
+    printf("%d: German Shepherd is a %s breed, thus it will %s and live for %d ",
+             german_shepherd.id,
+             german_shepherd.class,
+             german_shepherd.sound,
+             german_shepherd.life_span
+           );
+    puts("\n");
+    printf("%d: Chinchilla Persians. is a %s breed, thus it will %s and live for %d ",
+             chinchilla_persians.id,
+             chinchilla_persians.class,
+             chinchilla_persians.sound,
+             chinchilla_persians.life_span
+           );
+    puts("\n");
+    return(0);
+}
+\end{lstlisting}
+
+\item Compile Result:
+\begin{lstlisting}
+31415: German Shepherd is a Dog breed, thus it will Bark and live for 20
+31416: Chinchilla Persians. is a Cat breed, thus it will Meow and live for 10
+\end{lstlisting}
+\item[⚠] Note: At lines 18, 20, 25, 27, there is an incorrect usage of memory allocation for the struct `animal`.
+ The reason is that the struct `animal` is designed to use a block of memory that accommodates a 20-character array
+ and a 10-character array, along with 4 for an integer and another 4 \ for an another int, for example
+ Declaring a variable of type struct animal (e.g., german\_shepherd) will allocate memory on the stack.
+ Assigning a string literal to german\_shepherd.sound (e.g., german\_shepherd.sound = "Bark") is incorrect
+ because it attempts to copy the address of the string literal, which is a pointer, into an array
+ This will fail because the compiler expects german\_shepherd.sound to be an array within the struct,
+ which is 38 bytes long in this context, and "Bark" is a string literal represented as a char array
+ that is 5 bytes long (including the null terminator '$\backslash$0' that signifies the end of C strings)
+ Thus, the correct way to assign a string to an array is by using a function like strcpy, which copies
+ the characters of the string into the array, including the null terminator, without needing the length hardcoded
+ In C, when you want to copy a string into a character array, you should use functions like strcpy from the <string.h> library.
+ This function handles the null-termination and prevents buffer overflow by not exceeding the array's allocated size.
+ Always ensure that the destination array is large enough to hold the source string and the null terminator.
+ Alternatively it is possible to define a struct which points to char arrays of any length:
+\begin{lstlisting}
+struct animal {
+    int id;
+    int life_span;
+    char *sound;
+    char *class;
+} ;
+\end{lstlisting}
+
+
+\item Example Code of creating a struct variable using the structure definition statement (line 9)
+\begin{lstlisting}
+ #include <stdio.h>
+ #include <string.h>
+
+ struct animal {
+         int id;
+         int life_span;
+         char sound[20];
+         char class[10];
+ } german_shepherd ;
+   
+int main(){
+   
+    german_shepherd.id = 31415;
+    german_shepherd.life_span = 20;
+    //german_shepherd.sound = "Bark";
+    strcpy(german_shepherd.sound,"Bark");
+    //german_shepherd.class = "Dog"
+    strcpy(german_shepherd.class,"Dog");
+   
+    printf("%d: German Shepherd is a %s breed, thus it will %s and live for %d ",
+        german_shepherd.id,
+        german_shepherd.class,
+        german_shepherd.sound,
+        german_shepherd.life_span
+    );
+   
+    puts("\n");
+    return(0);
+}
+\end{lstlisting}
+
+\item Compile Result:
+\begin{lstlisting}
+31415: German Shepherd is a Dog breed, thus it will Bark and live for 20
+\end{lstlisting}
+
+\item Example of Declaring and initialling values while defining an Structure(line 9):
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+
+struct animal {
+         int id;
+         int life_span;
+         char sound[20];
+         char class[10];
+ } german_shepherd = {31415, 20, "Bark", "Dog"} ;
+
+ int main(){
+
+         printf("%d: German Shepherd is a %s breed, thus it will %s and live for %d ",
+                 german_shepherd.id,
+                 german_shepherd.class,
+                 german_shepherd.sound,
+                 german_shepherd.life_span
+               );
+
+         puts("\n");
+
+         return(0);
+ }
+\end{lstlisting}
+\item Compile Result:
+\begin{lstlisting}
+31415: German Shepherd is a Dog breed, thus it will Bark and live for 20
+\end{lstlisting}
+\end{itemize} 
+
+
+\subsection{Nesting Structures}
+A structure can contain any type of variable as a member, and this includes other structures,
+which are referred to as nested structures. The code below demonstrates two structures:
+the first one is Date, which contains three members, 
+and the second is Author, which includes a Date structure named birthday and a character
+array named name. Lines 17 to 20 populate the members of the Author structure variable.
+To access members of a nested structure, a dot operator is used for each level of nesting.
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main(){
+        struct Date {
+                int month;
+                int day;
+                int year;
+         };
+
+         struct Author {
+                 struct Date birthday;
+                 char name[30];
+         };
+
+         struct Author author;
+
+         author.birthday.day = 15;
+         author.birthday.month = 10;
+         author.birthday.year = 1844;
+         strcpy(author.name, "Nietzsche");
+
+         printf("%s was born on /%d/%d/%d",
+                 author.name,
+                 author.birthday.day,
+                 author.birthday.month,
+                 author.birthday.year
+                 );
+         puts("\n");
+
+ }
+\end{lstlisting}
+
+\begin{lstlisting}
+Nietzsche was born on /15/10/1844
+\end{lstlisting}
+\break
+In this code, another Date structure was added to the Author structure.
+Multiple copies of a single structure can be used as members within another structure,
+each provided with its own unique variable name.
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main(){
+        struct Date {
+                int month;
+                int day;
+                int year;
+        };
+
+        struct Author {
+                struct Date birthday;
+                struct Date died;
+                char name[30];
+        };
+       
+        struct Author author;
+
+        author.birthday.day = 15;
+        author.birthday.month = 10;
+        author.birthday.year = 1844;
+
+        author.died.day = 25;
+        author.died.month = 8;
+        author.died.year = 1900;
+
+        strcpy(author.name, "Nietzsche");
+
+        printf("%s was born on /%d/%d/%d and died on  /%d/%d/%d",
+                author.name,
+                author.birthday.day,
+                author.birthday.month,
+                author.birthday.year,
+                author.died.day,
+                author.died.month,
+                author.died.year
+                );
+        puts("\n");
+       
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+Nietzsche was born on /15/10/1844
+\end{lstlisting}
+
+\break
+Example code of pre setting the structure with nested Structures
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main(){
+        struct Date {
+                int month;
+                int day;
+                int year;
+        };
+       
+        struct Author {
+                struct Date birthday;
+                struct Date died;
+                char name[30];
+        };
+       
+        struct Author author = {
+                {15, 10, 1844},
+                {25, 8, 1900},
+                "Nietzsche"
+        };
+       
+       
+        printf("%s was born on /%d/%d/%d and died on  /%d/%d/%d",
+                author.name,
+                author.birthday.day,
+                author.birthday.month,
+                author.birthday.year,
+       
+                author.died.day,
+                author.died.month,
+                author.died.year
+        );
+
+        puts("\n");
+       
+}
+
+\end{lstlisting}
+Compile Result:
+\begin{lstlisting}
+Nietzsche was born on /10/15/1844 and died on  /8/25/1900
+\end{lstlisting}
+
+\subsection{Array of Structures}
+In C, just like any other variable, it is possible to create an array of structures, 
+with each element of the array being occupied by an individual structure.
+at this example code we have an array with 3 elements, which is called author and from line ... to ... 
+values are assigned to it:  
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+
+ int main(){
+
+        struct Date {
+                int month;
+                int day;
+                int year;
+        };
+       
+        struct Author {
+                struct Date birthday;
+                char name[30];
+        };
+       
+        struct Author authors[3];
+       
+        authors[0].birthday.day = 15;
+        authors[0].birthday.month = 10;
+        authors[0].birthday.year = 1844;
+        strcpy(authors[0].name, "Nietzsche");
+
+
+        authors[1].birthday.day = 21;
+        authors[1].birthday.month = 2;
+        authors[1].birthday.year = 1789;
+        strcpy(authors[1].name, "Schopenhauer");
+
+
+        authors[2].birthday.day = 5;
+        authors[2].birthday.month = 5;
+        authors[2].birthday.year = 1813;
+        strcpy(authors[2].name, "kierkegaard");
+
+        for ( int x = 0; x < 3; x++ ){
+                printf("Author#%d: %s was born on /%d/%d/%d \n",
+                        x + 1,
+                        authors[x].name,
+                        authors[x].birthday.day,
+                        authors[x].birthday.month,
+                        authors[x].birthday.year
+                        );
+        };
+
+        puts("\n");
+
+ }
+\end{lstlisting}
+
+Compile Result:
+\begin{lstlisting}
+        Author#1: Nietzsche was born on /15/10/1844
+        Author#2: Schopenhauer was born on /21/2/1789
+        Author#3: kierkegaard was born on /5/5/1813
+\end{lstlisting}
+
+Example Code of Pre-Setting the Structure array value while defining it:
+\begin{lstlisting}
+ #include <stdio.h>
+ #include <string.h>
+
+ int main(){
+         struct Date {
+                 int month;
+                 int day;
+                 int year;
+         };
+
+         struct Author {
+                 struct Date birthday;
+                 char name[30];
+
+         } authors[3] = {
+                 { { 10, 15, 1844 },  "Nietzsche"  },
+                 { { 2, 21, 1789},  "Schopenhauer" },
+                 { { 5, 5, 1813},  "kierkegaard"}
+         };
+
+
+         for ( int x = 0; x < 3; x++ ){
+                 printf("Author#%d: %s was born on /%d/%d/%d \n",
+                         x + 1,
+                         authors[x].name,
+                         authors[x].birthday.day,
+                         authors[x].birthday.month,
+                         authors[x].birthday.year
+                         );
+         };
+
+         puts("\n");
+
+ }
+
+\end{lstlisting}
+
+Compile Result:
+\begin{lstlisting}
+        Author#1: Nietzsche was born on /15/10/1844
+        Author#2: Schopenhauer was born on /21/2/1789
+        Author#3: kierkegaard was born on /5/5/1813
+\end{lstlisting}
+
+\subsection{Sending a Structure to a function}
+\subsubsection{Sending one member of the Structure to the function}
+Example Code of passing one member of the Structure to the function:
+\begin{lstlisting}
+
+\end{lstlisting}
+
+
+Compile Result:
+\begin{lstlisting}
+        Nietzsche
+        was born on /15/10/1844
+        Schopenhauer
+        was born on /21/2/1789
+        kierkegaard
+        was born on /5/5/1813
+\end{lstlisting}
+\subsubsection{Sending one member of the Structure to the function}
+
+
+\subsubsection{Passing an Array of the structures to the function:}
+
+\begin{lstlisting}
+ #include <stdio.h>
+ #include <string.h>
+
+
+ struct Date {
+         int month;
+         int day;
+         int year;
+ };
+
+ struct Author {
+         struct Date birthday;
+         char name[30];
+ };
+
+
+
+ /* Defining the Function:*/
+                        // struct structName  arrayName
+ void show_author_infos(struct Author writers[]);
+
+ /* Defining the Function:*/
+ void show_author_name(char* inputString);
+
+ int main(){
+
+
+         struct Author authors[3];
+
+         authors[0].birthday.day = 15;
+         authors[0].birthday.month = 10;
+         authors[0].birthday.year = 1844;
+         strcpy(authors[0].name, "Nietzsche");
+
+
+         authors[1].birthday.day = 21;
+         authors[1].birthday.month = 2;
+         authors[1].birthday.year = 1789;
+         strcpy(authors[1].name, "Schopenhauer");
+
+
+         authors[2].birthday.day = 5;
+         authors[2].birthday.month = 5;
+         authors[2].birthday.year = 1813;
+         strcpy(authors[2].name, "kierkegaard");
+
+         show_author_infos(authors) ;
+ }
+
+
+ void show_author_infos(struct Author writers[]){
+
+         for ( int x = 0; x < 3; x++ ){
+
+                 /*Pasing the Author name to the function:*/
+                 show_author_name(writers[x].name);
+
+                 printf("was born on /%d/%d/%d \n",
+                         writers[x].birthday.day,
+                         writers[x].birthday.month,
+                         writers[x].birthday.year
+                       );
+         };
+
+ };
+
+
+ void show_author_name(char *inputString){
+         printf("%s \n", inputString);
+ };
+\end{lstlisting}
+\break
+Code Explanations:
+\begin{enumerate}
+        \item \textbf{Structure Definition:} Structures are defined to represent complex data types that group together different related variables. In this code, `Date` and `Author` structures are defined to hold information about authors and their birth dates.
+        \begin{verbatim}
+        struct Date {
+            int month;
+            int day;
+            int year;
+        };
+        
+        struct Author {
+            struct Date birthday;
+            char name[30];
+        };
+        \end{verbatim}
+    
+        \item \textbf{Function Prototypes:} Before the main function, prototypes for `show\_author\_infos` and `show\_author\_name` are declared. These prototypes inform the compiler about the functions' existence before their actual definitions later in the code.
+        \begin{verbatim}
+        void show_author_infos(struct Author writers[]);
+        void show_author_name(char* inputString);
+        \end{verbatim}
+    
+        \item \textbf{Initialization of Structure Array:} An array of `Author` structures is created and initialized in the `main` function. Each element of the array represents an author and is populated with their name and birth date.
+        \begin{verbatim}
+        struct Author authors[3];
+        // Initialization of authors array with names and birth dates
+        \end{verbatim}
+    
+        \item \textbf{Passing Structure Array to Function:} The array of `Author` structures is passed to the `show\_author\_infos` function. This is done by reference, which means the function has access to the original array and can modify it if needed.
+        \begin{verbatim}
+        show_author_infos(authors);
+        \end{verbatim}
+    
+        \item \textbf{Iterating Over Structure Array:} Inside `show\_author\_infos`, a loop iterates over the array of `Author` structures. For each author, the function `show\_author\_name` is called to print the author's name.
+        \begin{verbatim}
+        for (int x = 0; x < 3; x++) {
+            show_author_name(writers[x].name);
+            // ...
+        }
+        \end{verbatim}
+    
+        \item \textbf{Accessing Structure Members:} Still within the loop, the members of each `Author` structure are accessed to print the author's birth date. The `printf` function is used with format specifiers to display the day, month, and year.
+        \begin{verbatim}
+        printf("was born on %d/%d/%d\n",
+               writers[x].birthday.day,
+               writers[x].birthday.month,
+               writers[x].birthday.year);
+        \end{verbatim}
+    
+        \item \textbf{Printing Author's Name:} The `show\_author\_name` function receives a string (the name of the author) and prints it. This function demonstrates how to pass a single member of a structure to a function.
+        \begin{verbatim}
+        void show_author_name(char *inputString) {
+            printf("%s \n", inputString);
+        }
+        \end{verbatim}
+    \end{enumerate}
+
+\begin{itemize} 
+\item[⚠] Note: In C programming, the order in which you define structures and functions is crucial for successful compilation. Structures must be defined before functions that use them. This is because functions need to be aware of the structure definitions to handle them properly.
+
+    If you attempt to define a structure within a function before declaring it globally, the compiler will not recognize the structure in other parts of your program, leading to errors. Structures should be defined at the global scope if they are to be used by multiple functions.
+    
+    Here’s the correct order to avoid compilation errors:
+    
+    Define all structures at the global scope.
+    Declare function prototypes that will use these structures.
+    Define functions that implement the declared prototypes.
+    By following this order, you ensure that when the functions are compiled, the compiler has already seen the complete structure definitions and knows how to handle them.
+    
+    Remember, a well-organized code structure is key to a smooth compilation process and the creation of maintainable and error-free programs.
+\end{itemize} 
+    
+    
+\subsection{Exercises}
+% https://c-faq.com/decl/spiral.anderson.html

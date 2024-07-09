@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  13 JUN 2024 21:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  6 JUL 2024 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/chp1.tex"
-(c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/chp1.tex
+**"c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/advanced_c_programmng_and_datastructures.tex"
+(c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/notes/advanced_c_programmng_and_datastructures.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (c:/texlive/2023/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
@@ -89,8 +89,8 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count268
 \l__pdf_internal_box=\box53
-) (./chp1.aux)
-\openout1 = `chp1.aux'.
+) (./advanced_c_programmng_and_datastructures.aux)
+\openout1 = `advanced_c_programmng_and_datastructures.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
@@ -132,41 +132,87 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-] [3] [4]
+] (./advanced_c_programmng_and_datastructures.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+ [3])
+\tf@toc=\write3
+\openout3 = `advanced_c_programmng_and_datastructures.toc'.
+
+ [4] [5
+
+] [6]
 Chapter 1.
-(././01_01_array.tex [5
+(./chapter_1/01_01_array.tex [7
 
-{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6] [7]
+{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [8] [9]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 126.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 126.
-
-Underfull \vbox (badness 5847) has occurred while \output is active []
-
- [8]
+(Font)              <14.4> on input line 125.
+ [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9] [10] [11] [12]) (././01_02_structure.tex
+ [11] [12] [13] [14]) (./chapter_1/01_02_structure.tex [15] [16] [17]
+Overfull \hbox (0.41736pt too wide) in paragraph at lines 128--129
+[]\OT1/cmr/m/n/10 Example of Declar-ing and ini-tialling val-ues while defin-ing an Struc-ture(line
+ []
+
+[18]
+Underfull \vbox (badness 4543) has occurred while \output is active []
+
+ [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13])
+ [20] [21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14] [15] (./chp1.aux) ) 
+ [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23] [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+Overfull \hbox (46.4792pt too wide) in paragraph at lines 520--521
+[]\OT1/cmr/bx/n/10 Function Pro-to-types: \OT1/cmr/m/n/10 Be-fore the main func-tion, pro-to-types for `show[]author[]infos`
+ []
+
+
+Overfull \hbox (42.24687pt too wide) in paragraph at lines 530--530
+ []        \OT1/cmtt/m/n/10 // Initialization of authors array with names and birth dates[] 
+ []
+
+[26]) [27] [28]
+Chapter 2.
+(./chapter_2/01_02_pointers.tex [29
+
+]
+Overfull \hbox (34.7784pt too wide) in paragraph at lines 41--42
+[]\OT1/cmr/m/n/10 Pointers are as-signed the ad-dress of an-other vari-able, which has an $[]$. 
+ []
+
+[30] [31] [32] [33] [34] [35] [36]
+Underfull \vbox (badness 4291) has occurred while \output is active []
+
+ [37] [38]) [39] [40
+
+]
+Chapter 3.
+(./chapter_3/01_03_objects.tex [41]) [42] (./advanced_c_programmng_and_datastructures.aux) ) 
 Here is how much of TeX's memory you used:
- 3564 strings out of 476025
- 51131 string characters out of 5794015
- 1922382 words of memory out of 5000000
- 24016 multiletter control sequences out of 15000+600000
- 519224 words of font info for 55 fonts, out of 8000000 for 9000
+ 3759 strings out of 476025
+ 54273 string characters out of 5794015
+ 1925382 words of memory out of 5000000
+ 24196 multiletter control sequences out of 15000+600000
+ 519691 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,6n,53p,497b,1726s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on chp1.pdf (15 pages, 157244 bytes).
+ 47i,6n,55p,542b,1728s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on advanced_c_programmng_and_datastructures.pdf (42 pages, 223341 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 202 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

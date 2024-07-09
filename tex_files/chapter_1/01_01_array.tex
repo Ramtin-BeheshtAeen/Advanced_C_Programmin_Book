@@ -1,0 +1,368 @@
+\section{Arrays}
+\subsection{Concepts}
+
+In C: Array is a collection of consecutive objects with same data type
+\begin{itemize}
+    \item Array is a variable
+    \item Array has a data type and name with square bracket
+    \item Within the brackets are the number of elements in the array
+
+
+\begin{lstlisting} 
+float best_score[3] = {
+1.1, 2.1, 3.1, 4.1
+};
+\end{lstlisting}
+
+    \item In C Arrays are non dynamic it means that their size be altered as the program runs.
+    \item Arrays in C have no bounds checking, so it is possible to reference an element, which is not exist. calling element outside the Array declaration
+    \item Arrays have a lot in commons with pointers
+    \item It is possible to declare an arrays length as the program runs but it is mostly avoided, so jest set the value in the code and know that it can not be increased when program runs
+    \end{itemize}
+    \break
+    \break
+    
+      \subsubsection{Dynamic Arrays}
+      Example of declare an array with use of pointers and still set its length at runtime:
+      \begin{itemize}
+      \item Code:
+      \begin{lstlisting}
+        
+        
+printf("Enter the size of the Array: ");
+scanf("%d",&arraySize);
+
+// Dynamically allocate memory for the array
+myArray = (int *)malloc(arraySize * sizeof(int));
+
+//Checking wheter rhe memory allocation was successful or not:
+if(myArray == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        return 1;
+}
+
+//Initialize array with values:
+for(int i = 0; i < arraySize; i++) {
+        myArray[i] = i * i;
+}
+
+//Print Arrays Values
+for (int i = 0; i < arraySize; i++){
+        printf("myArray[%d] = %d\n",i, myArray[i]);
+}
+
+//Free the allocated memory
+free(myArray);
+return 0;
+
+}
+
+      \end{lstlisting}
+      \item Compile result:
+      \begin{lstlisting}
+        Enter the size of the Array: 10
+        myArray[0] = 0
+        myArray[1] = 1
+        myArray[2] = 4
+        myArray[3] = 9
+        myArray[4] = 16
+        myArray[5] = 25
+        myArray[6] = 36
+        myArray[7] = 49
+        myArray[8] = 64
+        myArray[9] = 81
+      \end{lstlisting}
+      In this code, arraySize is determined at runtime based on the user’s input. The malloc function is used to allocate the required amount of memory. It’s important to free the allocated memory with free when you’re done using the dynamically allocated array to prevent memory leaks.
+      Keep in mind that dynamic memory allocation allows for flexible array sizes, but it also requires careful management of the allocated memory.
+
+
+
+      Example of declare an array with out useing pointers and still set its length at runtime(Using  Variable Length Arrays (VLA)):
+\begin{lstlisting}
+#include <stdio.h>
+
+int main(){
+        int arraySize;
+        
+        //Ask the user for the array size:
+        printf("Enter the size of the array: ");
+        scanf("%d", &arraySize);
+        
+        //declare VLA based on the user input:
+        int myArray[arraySize];
+        
+        //Intitialize array with values
+        for (int i = 0; i < arraySize; i++){
+                myArray[i] = i * i;
+        }
+        
+        //Print array values:
+        for (int i = 0; i < arraySize; i++){
+        printf("myArray[%d] = %d\n", i, myArray[i]);
+        }
+        
+        return 0;
+}
+\end{lstlisting}
+
+      \item Compile result:
+      \begin{lstlisting}
+        Enter the size of the Array: 5
+        myArray[0] = 0
+        myArray[1] = 1
+        myArray[2] = 4
+        myArray[3] = 9
+        myArray[4] = 16
+      \end{lstlisting}
+      In this code, myArray is a VLA whose size arraySize is determined by the user input at runtime. No pointers are used, and the array is directly accessed by its indices.
+      Keep in mind that not all compilers support VLAs, and their use is controversial due to potential risks such as stack overflow. Also, VLAs are not part of the ISO C++ standard, so they are not portable across all platforms or languages. For these reasons, dynamic memory allocation with pointers is generally preferred for arrays with sizes determined at runtime.
+    \end{itemize} 
+
+\subsection{Working With Arrays}
+\subsubsection{dublicating an array}
+\begin{itemize}
+  \item In this code the process of duplicated an array is demonstrated:
+  \item[⚠] Note: Duplicate must have the same or greater number of elements.(We as an Programmer must enforce this rule, because Compile wont check it)
+\begin{lstlisting}
+  #include <stdio.h>
+
+int main(){
+        int original_array[5] = {10, 20, 30, 40, 50};
+        int duplicate[5];
+
+        for ( int i = 0; i < 5; i++){
+                duplicate[i] = original_array[i];
+        }
+
+        puts("Arrays Values \n");
+
+        for ( int j = 0; j < 5; j++ ){
+                printf("Element#%d %3d == %3d \n", j, original_array[j], duplicate[j]);
+        }
+
+
+}
+\end{lstlisting}
+\item Compile Result:
+\begin{lstlisting}
+  Arrays Values
+
+  Element#0  10 ==  10
+  Element#1  20 ==  20
+  Element#2  30 ==  30
+  Element#3  40 ==  40
+  Element#4  50 ==  50
+\end{lstlisting}
+
+\end{itemize}
+
+
+\subsection{Passing an array to an function}
+
+\subsubsection{passing the whole array}
+an entire array has been passed to the function. In the function, the argument is
+a character variable array with empty bracket and indicates that the entire array
+has passed. within the function the array has modified and output.
+        \begin{itemize}
+        \item Code:
+        \begin{lstlisting}
+     
+                #include <stdio.h>
+
+                void print_array_func(char input_array[]){
+                
+                        for ( int x = 0; x < 6; x++){
+                                input_array[x]++;
+                                putchar(input_array[x]);
+                        }
+                }
+                
+                int main(){
+                
+                        char text[] = "Gdkkn ";
+                
+                        print_array_func(text);
+                        putchar('\n');
+                
+                        return(0);
+                
+                }
+
+      \end{lstlisting}
+      \item Compile Result:
+      \begin{lstlisting}
+      Hello!
+      \end{lstlisting}
+      \end{itemize}
+
+\break
+\subsubsection{passing the arrays elements individually}
+\begin{itemize}
+  \item Code:
+\begin{lstlisting}
+#include <stdio.h>
+
+void print_arrays_char( char a ){
+        a++;
+        putchar(a);
+}
+
+int main(){
+        char text[] = "Gdkkn";
+
+        for( int x = 0; x < 6; x++ ){
+                print_arrays_char(text[x]);
+        }
+        putchar('\n');
+}
+\end{lstlisting}
+\item Compile Result:
+\begin{lstlisting}
+Hello
+\end{lstlisting}
+\end{itemize}
+
+\subsubsection{retunring an array}
+\begin{itemize}
+        \item[⚠] \hspace{0.1cm} Note: While individual array elements can be returned sequentially,
+         to return an entire array created within a function, you must utilize pointers.
+        \end{itemize}
+        
+        
+        \begin{itemize}
+        \item[⚠] \hspace{0.1cm} Wrong Way of returning an Array:
+        \begin{lstlisting}
+                #include <stdio.h>
+                #include <stdlib.h>
+
+                int make_array_func(void){
+                        int array[5];
+                        for ( int x = 0; x < 5; x++){
+                                array[x] = rand() % 10 + 1;
+                        }
+                        return(array);
+                }
+
+                int main(){
+                        int r[5];
+                        r = make_array_func();
+                        puts("Here are your 5 random numbers:");
+                        for (int x = 0; x < 6; x++)
+                                printf("%d\n",r[x]);
+                }
+        
+        \end{lstlisting}
+        \item Compile Result:
+        \begin{lstlisting}
+        01_04_returning_an_array.c:12:15: warning: returning int * from a function with return type int makes integer from pointer without a cast [-Wint-conversion]
+        12 |         return(array);
+        |               ^
+        01_04_returning_an_array.c: In function main:
+        01_04_returning_an_array.c:19:11: error: assignment to expression with array type
+        \end{lstlisting}
+        \end{itemize}
+
+\subsubsection{return an array from a function by returning a pointer to the array}
+in C, you can return an array from a function by returning a pointer to the array.
+However, you need to ensure that the array you’re returning is not a local array inside the function,
+as it will be destroyed once the function scope ends. One way to do this is by dynamically allocating the
+array on the heap using malloc. Here’s how you can modify your function to return an array using a pointer:
+
+\begin{itemize}
+\item The asterisk * before make\_array\_func in the function declaration indicates that the function returns a pointer.
+\end{itemize}
+
+\begin{itemize}
+\item Code:
+\begin{lstlisting}
+        #include <stdio.h>
+        #include <stdlib.h>
+        
+        int* make_array_func(void){
+                //Dynamically allocate an array of 5 integers
+                int *array = malloc( 5 * sizeof(int));
+        
+                if (array == NULL){
+                        //Handle memory allocation failure
+                        fprintf(stderr, "Memory allocation failed\n");
+                        exit(EXIT_FAILURE);
+                }
+                //Asigning values to the Array:
+                for ( int x = 0; x < 5; x++){
+                        array[x] = rand() % 10 + 1;
+                }
+        
+                return array;
+        }
+        
+        int main(){
+                int *r;
+        
+                r = make_array_func();
+        
+                puts("Here are 5 random numbers:");
+                for ( int x = 0; x < 5; x++) {
+                        printf("%d\n", r[x]);
+                }
+                //Frreing up the memory!! Dont Forgot that
+                free(r);
+                return 0;
+        
+        }
+
+\end{lstlisting}
+\item Compile Result:
+\begin{lstlisting}
+        Here are 5 random numbers:
+        4
+        7
+        8
+        6
+        4
+\end{lstlisting}
+\end{itemize}
+
+\subsection{Multi-Dimensional Array}
+\begin{itemize}
+        \item Example code of multi-dimensional array for creating a three by three matrix, which is fulled randomly with X or O:
+        \begin{lstlisting}
+                #include <stdio.h>
+                #include <stdlib.h>
+                #include <time.h>
+                
+                
+                int main(){
+                        char tic_tac_toe [3][3];
+                        char array[] = {'x', 'o'};
+                
+                        //Initiallize the board
+                        for ( int i = 0; i < 3; i++ ){
+                                for ( int j = 0; j < 3; j++){
+                                        // Assign 'x' or 'o' randomly to the board
+                                        // rand() % 2 will Generate numbers between 0 and 1
+                                        tic_tac_toe[i][j] = array[rand() % 2];
+                
+                                }
+                        }
+                
+                        //Printing the board
+                        for ( int i = 0; i < 3; i++ ){
+                                for ( int j = 0; j < 3; j++){
+                                        printf(" %c ", tic_tac_toe[i][j]);
+                                }
+                                putchar('\n');
+                        }
+                
+                        return(0);
+                }
+               
+
+      \end{lstlisting}
+      \item Compile Result:
+      \begin{lstlisting}
+        o  o  x
+        x  o  x
+        x  x  x
+      \end{lstlisting}
+      \end{itemize}
+\subsection{Exercises}

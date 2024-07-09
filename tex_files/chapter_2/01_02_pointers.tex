@@ -1,0 +1,457 @@
+\section{Concepts}
+A variable has 5 main properties:
+\begin{itemize}
+    \item variable type (in this example variable type is: int)
+    \item variable name (in this example variable name is: variable)
+    \item variable value (in this example variable size is: 20)
+    \item variable location in the memory (in this example variable location is: 0x7ffdd65ea944)
+    \item number of bytes, that it has occupied int the memory (in this example variable occupies: 4 bytes)
+\end{itemize}
+
+\begin{lstlisting} 
+#include <stdio.h>
+
+int main(){
+        
+        int variable = 20;
+
+        printf("This variable value is: %d  \n ", variable);
+        printf("This variable occupies %lu bytes  \n", sizeof( int ) );
+        printf("This variable Address  in memory is: %p  \n", &variable);
+       
+        return(0);
+ }
+\end{lstlisting}
+
+
+Compile Result:
+\begin{lstlisting} 
+This variable value is: 20
+This variable occupies 4 bytes
+This variable Address  in memory is: 0x7ffdd65ea944
+\end{lstlisting}
+
+Keynotes about the Pointers:
+\begin{itemize}
+    \item A pointer is a variable that stores the memory address of another variable as its value.
+    \item A pointer is a variable, so its value can be changed too
+    \item A pointer can manipulate the address, which is holding.
+    \item Pointer like other variables needing a datatype, and variable name, which is prefixed with an asterisk `*`
+    \item Pointer like other variables should initialized and then used.
+    \item Pointers are assigned the address of another variable, which has an \underline{same data type}.
+    \item ampersand operator (\&) fetches variable's address.
+    \item Pointer \underline{with} * represent the \underline{Data} stored at that memory location \textbf{(Line 12)}
+    \item Pointer \underline{without} * represent the \underline{memory address}, in which the data is stored on.\textbf{(Line 9)}
+\end{itemize}
+
+
+
+\section{Pointers in action:}
+Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+ int main() {
+         int numerical_var = 42;
+         int *numerical_var_ptr;
+
+         numerical_var_ptr = & numerical_var;
+
+         printf("Address of the variable numerical_var is: %p  \n", &numerical_var);
+         printf("the value stored in numerical_var_ptr is: %p  \n", numerical_var_ptr);
+
+         printf("Value of the variable numerical_var is: %d \n", numerical_var);
+         printf("value of the memory address in numerical_var is: %d \n", *numerical_var_ptr);
+
+         return(0);
+ }
+\end{lstlisting}
+
+After compiling and running the above code, the output will be something similar to:
+\begin{lstlisting} 
+Address of the variable numerical_var is: 0x7ffdea32e3fc
+the value stored in numerical_var_ptr is: 0x7ffdea32e3fc
+Value of the variable numerical_var is: 42
+value of the memory address in numerical_var is: 42
+\end{lstlisting}
+
+
+
+
+\begin{enumerate}
+    \item \textbf{Variable Declaration and Initialization (Line 1):} An integer variable is declared and initialized to the value \(42\). This variable will store an integer value.
+
+    \item \textbf{Pointer Declaration (Line 2):} A pointer variable is declared. This pointer is intended to reference an integer value by storing the address of an integer variable.
+
+    \item \textbf{Address Assignment (Line 4):} The address of the integer variable is assigned to the pointer using the address-of operator (\&).
+
+    \item \textbf{Address Printing (Line 6):} The address of the integer variable is printed using the \texttt{printf} function with the \%p format specifier, which is used for pointers.
+
+    \item \textbf{Pointer Value Printing (Line 7):} The value stored in the pointer, which is the address of the integer variable, is printed.
+
+    \item \textbf{Variable Value Printing (Line 9):} The value of the integer variable is printed directly.
+
+    \item \textbf{Dereferencing and Value Printing (Line 10):} The pointer is dereferenced using the asterisk (*) operator to access the value stored at the referenced address. The value is then printed.
+\end{enumerate}
+
+
+
+\section{Incrementing Pointers Variable}
+Workers Are Working Here
+\section{Pointers and Arrays}
+Workers Are Working Here
+\section{malloc}
+\subsection{concepts}
+\begin{itemize}
+\item Argument of malloc function is the number of bytes desired.
+\item Return value is a memory location or the NULL constant
+\item Dont forgot to import <stdlib> header File
+\item Pointer will be used to access the memory chunck allocated by malloc()
+\item We use the free() function to release the memory
+
+\item at line .... in `(char *)malloc...` section we are type casting the result 
+as an character pointer which should match the variable declaration at line ....
+\end{itemize}
+Here’s an example of using malloc with pointers:
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+
+ int main(){
+
+         char *buffer;
+
+         buffer = (char *)malloc( sizeof(char) * 128 );
+         if (buffer == NULL){
+                 puts("Unable to allocate memory");
+                 exit(1);
+         }
+         puts("Buffer allocated");
+         free(buffer);
+         puts("Buffer freed");
+ }
+\end{lstlisting}
+   
+Compile Results:
+\begin{lstlisting} 
+Buffer allocated
+Buffer freed
+\end{lstlisting}
+   
+
+\subsection{Why do we use `malloc` when working with pointers?}
+In C programming, malloc is used for dynamic memory allocation, which means allocating memory at runtime rather than at compile time. Here are some reasons why malloc is used with pointers:
+\begin{enumerate}
+    \item \textbf{Lifetime of Data:} When you allocate memory using malloc, the data persists beyond the scope of the function in which it was created. This is useful when you need to return a pointer to a data structure from a function or when the data needs to be accessed by multiple functions throughout the program1.
+    \item \textbf{Variable Size:} malloc allows you to allocate memory of a size that is determined at runtime. This is particularly useful when the size of the data structure cannot be known until the program is running2.
+    \item \textbf{Flexibility:} With malloc, you can allocate and deallocate memory as needed during the execution of your program. This provides flexibility in managing memory usage, especially for large or complex data structures2.
+    \item \textbf{No Stack Overflow:} Allocating large amounts of memory on the stack can lead to stack overflow.malloc allocates memory on the heap, which typically has a much larger size limit than the stack2.
+    \item \textbf{Dynamic Data Structures:} Many data structures like linked lists, trees, and graphs are dynamic and require memory to be allocated and deallocated as elements are added or removedmalloc is essential for implementing these structures2.
+\end{enumerate}
+
+
+
+
+\section{Using Pointers and Structures}
+\subsection{Pointer as an Structure Member}
+Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
+ struct Person {
+         char *name;
+         int Id;
+ };
+
+ int main() {
+
+         struct Person person;
+         char buffer[32];
+
+         printf("Enter your name: ");
+         fgets(buffer, 32, stdin);
+
+         /* Allocate Storage */
+         person.name = (char *)malloc( strlen(buffer) + 1 );
+
+         if (person.name == NULL)
+         {
+                 puts("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         /* Copying the buffer to the allocated storage */
+         strcpy( person.name , buffer);
+
+
+         printf("Enter the Id: ");
+         scanf("%d", &person.Id);
+
+         printf("User Name is: %s", person.name);
+         printf("User Id is: %d \n", person.Id);
+
+         return(0);
+ }
+
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+Enter your name: Ramtin
+Enter the Id: 31415
+User Name is: Ramtin
+User Id is: 31415
+\end{lstlisting}
+
+
+
+
+\subsection{Structure Pointer}
+Code:
+In this example, the Structure is a pointer, which is called `employee`. So, in order to access its members,
+the structure pointer operator (\texttt{->}) instead of the dot notation should be used.
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+
+ int main(){
+         struct person {
+                 char name[32];
+                 int age;
+
+         };
+
+         struct person *employee;
+
+         /* Allocating storage for the POinter Structure: */
+         employee = (struct person *)malloc( sizeof(struct person) * 1 );
+         if (employee == NULL){
+                 puts("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         /*Getting the name of the Employee strucutre:*/
+         printf("Enter the Employees name: \n");
+         fgets(employee->name, 32, stdin);
+
+         /*Getting the age of the Employee strucutre:*/
+         printf("Enter the Employees age: \n");
+         scanf("%d", &employee->age);
+
+         printf("Employee's name is: %s", employee -> name);
+         printf("Employee's name is: %d \n", employee -> age );
+
+         return(0);
+ }
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+Enter your name: Ramtin
+Enter the Id: 31415
+User Name is: Ramtin
+User Id is: 31415
+\end{lstlisting}
+
+\subsection{Pointer Member of a Structure Pointer}
+Example Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
+ struct Person {
+         char *name;
+         int age;
+ };
+
+ int main() {
+
+         char buffer[32];
+         struct Person *employee;
+
+         /* Allocating Storage for the Structure: */
+         employee = (struct Person *)malloc( sizeof( struct Person) * 1);
+         if(employee == NULL){
+                 printf("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         printf("Enter the Employess's name:");
+         fgets(buffer, 32, stdin);
+
+         /* Allocating storage for the pointer member of the pointer Structure, which is named `name`*/
+         employee -> name = (char *)malloc( sizeof(buffer) );
+         if (employee -> name == NULL){
+                 printf("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         /* Copying the buffer to the name: */
+         strcpy(employee->name, buffer);
+         /* Getting he age: */
+         printf("Enter your age: ");
+         scanf("%d", &employee->age);
+
+         printf("Employee's name: %s", employee->name);
+         printf("Employee's age: %d \n", employee->age);
+
+ };
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+Enter the Employess's name:Reza
+Enter your age: 22
+Employee's name: Reza
+Employee's age: 22
+\end{lstlisting}
+
+\section{Function Pointer}
+function pointer will save the memory address of an function
+Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+
+ void function(int x)
+ {
+         printf("X: %d \n", x);
+ }
+
+ int main(){
+
+         void (*function_pointer)(int);
+
+         function_pointer = &function;
+
+         (*function_pointer)(4);
+
+         return(0);
+ }
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+
+\end{lstlisting}
+
+
+\begin{lstlisting} 
+1 #include <stdio.h>
+2
+3 double add(double x, double y){
+4         return x + y;
+5 }
+6
+7 int main(){
+8
+9         double (*add_function_ptr) (double, double);
+10
+11         add_function_ptr = add;
+12
+13         double result = add_function_ptr(20, 10);
+14
+15         printf("result: %f \n", result);
+16
+17         return 0;
+18 }
+\end{lstlisting}
+
+\subsection{Array of pointers to functions}
+
+\begin{lstlisting} 
+ #include <stdio.h>
+
+ double add(int x, int y){
+         return x + y;
+ }
+
+ double subtract(int x, int y){
+         return x - y;
+ }
+
+ double multiply(int x, int y){
+         return x * y;
+ }
+
+ double divide(int x, int y){
+         return x / y;
+ }
+
+
+ int main(){
+         double (*opration_array[]) (int, int) = {add, subtract, multiply, divide};
+
+         double result = (*opration_array[2])(3, 20);
+
+         printf("result: %f \n", result);
+
+ }
+\end{lstlisting}
+
+\begin{lstlisting} 
+result: 60.000000
+\end{lstlisting}
+
+\subsection{A Function That Return a Pointer To a Function:}
+\begin{lstlisting} 
+#include <stdio.h>
+
+ double add(int x, int y){
+         return x + y;
+ }
+
+ double subtract(int x, int y){
+         return x - y;
+ }
+
+ double multiply(int x, int y){
+         return x * y;
+ }
+
+ double divide(int x, int y){
+         return x / y;
+ }
+
+
+ void ( *select_operation() ) {
+         int option = 0;
+         printf("Select an operation: \n");
+         printf("Enter 1 for Subtracting\n");
+         printf("Enter 2 for adding\n");
+         printf("Enter 3 for multipling\n");
+         printf("Enter 4 for dividing\n");
+
+         scanf("%d", &option);
+
+         switch (option){
+                 case 1: return subtract;
+                 case 2: return add;
+                 case 3: return multiply;
+                 case 4: return divide;
+                 default: return NULL;
+
+         }
+
+ }
+
+ int main(){
+
+         double (*operation) (int, int) = select_operation();
+         printf("result: %f \n", operation(20, 5));
+ }
+\end{lstlisting}
+Compile Result:
+\begin{lstlisting} 
+Select an operation:
+Enter 1 for Subtracting
+Enter 2 for adding
+Enter 3 for multipling
+Enter 4 for dividing
+3
+result: 100.000000
+\end{lstlisting}
+
+\subsection{A Function That Get a Pointer To a Function As an Input:}
+\section{Exercises}
