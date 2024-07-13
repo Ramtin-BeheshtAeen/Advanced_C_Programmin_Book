@@ -11,13 +11,15 @@
 \usepackage{newunicodechar}
 %Package import:
 \usepackage{import}
+%Package import for \textquotesingles module:
+\usepackage{textcomp}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \newcommand\Warning{%
- \makebox[0.3em][c]{%
+ \makebox[0.4em][c]{%
  \makebox[0pt][c]{\raisebox{.1em}{\small!}}%
  \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
 
@@ -67,7 +69,6 @@
 \import{./chapter_3}{03_01_objects.tex}
 
 \chapter{Implementing simple Data structures in C}
-% \import{./chapter_5}{05_01_qsort_algorithm.tex}
 \section{Empty}
 
 \chapter{Implementing  simple Algorithms in C}
