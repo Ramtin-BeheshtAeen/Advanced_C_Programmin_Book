@@ -1,8 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1720870719 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" "advanced_c_programmng_and_datastructures.pdf" "advanced_c_programmng_and_datastructures" 1720870722 0
-  "advanced_c_programmng_and_datastructures.aux" 1720870722 6828 9803eb86fbb73fafd05c78651c700f06 "pdflatex"
+["pdflatex"] 1720998627 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" "advanced_c_programmng_and_datastructures.pdf" "advanced_c_programmng_and_datastructures" 1720998630 0
+  "./chapter_2//./02_function_pointers.tex" 1720998627 3875 49377ec26aae2fb1573e85b416e8dd8c ""
+  "advanced_c_programmng_and_datastructures.aux" 1720998630 6828 44901bccfe1e0dba2e5245604176258a "pdflatex"
   "advanced_c_programmng_and_datastructures.tex" 1720870717 1632 abcfbf1d595b8c97659c8c20ad86f4a9 ""
-  "advanced_c_programmng_and_datastructures.toc" 1720870722 4118 37e909dfb2bcc489bd79d48f08f4510e "pdflatex"
+  "advanced_c_programmng_and_datastructures.toc" 1720998630 4118 dddb67975383a4f2b58bb0f77223e32c "pdflatex"
   "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" 1720870717 1632 abcfbf1d595b8c97659c8c20ad86f4a9 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1699530341 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1699530739 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -59,9 +60,10 @@
   "c:/texlive/2023/texmf.cnf" 1699532638 713 e69b156964470283e0530f5060668171 ""
   "chapter_1/01_01_array.tex" 1718390770 12132 65443cd35939c8556adc235f28604b1c ""
   "chapter_1/01_02_structure.tex" 1718742770 19323 890d1b89080b76d5576674823068b2b5 ""
-  "chapter_2/02_01_pointers.tex" 1720870649 13847 7ef59fb75ac567ea1bd3e8cd26e08577 ""
+  "chapter_2//./02_function_pointers.tex" 1720998627 3875 49377ec26aae2fb1573e85b416e8dd8c ""
+  "chapter_2/02_01_pointers.tex" 1720998475 11079 21ccc8e9681b051bf910bea17a36d79b ""
   "chapter_3/03_01_objects.tex" 1720866589 2139 3bf0a8777ff9e086263d1c6dd62fc888 ""
-  "chapter_5/05_01_qsort_algorithm.tex" 1720866851 2148 602ca21b1d6f0f57ba1f96a453652d56 ""
+  "chapter_5/05_01_qsort_algorithm.tex" 1720870853 2742 91a873028f981c23d8d11a441a8ca225 ""
   (generated)
   "advanced_c_programmng_and_datastructures.aux"
   "advanced_c_programmng_and_datastructures.log"

@@ -1,7 +1,13 @@
 #include <stdio.h>
 
+int fuck_functiou(){
+	return 10;
+}
+
 struct Person {
 	int age;
+	// that is bad spill
+	// that if sf wrongs 
 	// In structures we can not define functions
 	// But we can Define variables
 	// If we can define variable, so we can define pointer variables too
@@ -33,5 +39,4 @@ int main(){
 
 	return(0);
 }
-
 

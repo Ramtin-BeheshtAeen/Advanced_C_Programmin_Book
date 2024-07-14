@@ -208,6 +208,10 @@ INPUT ./chapter_2/02_01_pointers.tex
 INPUT ./chapter_2/02_01_pointers.tex
 INPUT ./chapter_2/02_01_pointers.tex
 INPUT ./chapter_2/02_01_pointers.tex
+INPUT ./chapter_2//./02_function_pointers.tex
+INPUT ././chapter_2//./02_function_pointers.tex
+INPUT ./chapter_2//./02_function_pointers.tex
+INPUT ././chapter_2//./02_function_pointers.tex
 INPUT ./chapter_3/03_01_objects.tex
 INPUT ./chapter_3/03_01_objects.tex
 INPUT ./chapter_3/03_01_objects.tex
