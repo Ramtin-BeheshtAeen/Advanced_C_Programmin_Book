@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  15 JUL 2024 20:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.9)  15 JUL 2024 21:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -134,29 +134,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-]
-No file advanced_c_programmng_and_datastructures.toc.
+] (./advanced_c_programmng_and_datastructures.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+ [3])
 \tf@toc=\write3
 \openout3 = `advanced_c_programmng_and_datastructures.toc'.
 
-[3] [4
+ [4] [5
 
-] [5] [6]
+] [6]
 Chapter 1.
 (./chapter_1/01_01_array.tex [7
 
 {c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [8] [9]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 125.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 125.
  [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11] [12] [13] [14]) (./chapter_1/01_02_structure.tex [15]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 73.
- [16] [17]
+ [11] [12] [13] [14]) (./chapter_1/01_02_structure.tex [15] [16] [17]
 Overfull \hbox (0.41736pt too wide) in paragraph at lines 128--129
 []\OT1/cmr/m/n/10 Example of Declar-ing and ini-tialling val-ues while defin-ing an Struc-ture(line
  []
@@ -195,28 +194,50 @@ Overfull \hbox (34.7784pt too wide) in paragraph at lines 40--41
 []\OT1/cmr/m/n/10 Pointers are as-signed the ad-dress of an-other vari-able, which has an $[]$. 
  []
 
-) (././chapter_2//./02_02_pointers_in_action.tex [30]) (././chapter_2//./02_03_incrementing_pointers_variable.tex) (././chapter_2//./02_04_pointers_and_arrays.tex) (././chapter_2//./02_05_malloc.tex [31] [32]) (././chapter_2//./02_06_using_pointers_and_structures.tex [33] [34] [35]) (././chapter_2//./02_07_initialization_of_the_struct_in_depth.tex)
+) (././chapter_2//./02_02_pointers_in_action.tex [30]) (././chapter_2//./02_03_incrementing_pointers_variable.tex) (././chapter_2//./02_04_pointers_and_arrays.tex) (././chapter_2//./02_05_malloc.tex [31] [32]) (././chapter_2//./02_06_using_pointers_and_structures.tex [33] [34] [35]) (././chapter_2//./02_07_initialization_of_the_struct_in_depth.tex [36]
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
-! LaTeX Error: File `./02_08_function_pointers.tex' not found.
+ []
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
+[37]
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 129--129
+[]        \OT1/cmtt/m/n/10 .birthdate     = {.month = birthdate_month, .year = birthdate_year}[] 
+ []
 
-Enter file name: 
-./chapter_2/02_main.tex:24: Emergency stop.
-<read *> 
-         
-l.24 \import{.}{02_08_function_pointers.tex}
-                                            ^^M
-*** (cannot \read from terminal in nonstop modes)
+[38]) (././chapter_2//./02_08_function_pointers.tex [39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 146--157
 
- 
+ []
+
+[41]
+Underfull \vbox (badness 7451) has occurred while \output is active []
+
+ [42])) [43] [44
+
+]
+Chapter 3.
+(./chapter_3/03_01_objects.tex [45]) [46]
+Chapter 4.
+[47
+
+] [48
+
+]
+Chapter 5.
+(./chapter_5/05_01_qsort_algorithm.tex [49] [50]) [51] (./advanced_c_programmng_and_datastructures.aux) ) 
 Here is how much of TeX's memory you used:
- 3777 strings out of 476025
- 56085 string characters out of 5794015
+ 3925 strings out of 476025
+ 58438 string characters out of 5794015
  1925382 words of memory out of 5000000
- 24195 multiletter control sequences out of 15000+600000
+ 24329 multiletter control sequences out of 15000+600000
  519691 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,6n,62p,551b,1728s stack positions out of 10000i,1000n,20000p,200000b,200000s
-./chapter_2/02_main.tex:24:  ==> Fatal error occurred, no output PDF file produced!
+ 52i,6n,62p,551b,1728s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on advanced_c_programmng_and_datastructures.pdf (51 pages, 236566 bytes).
+PDF statistics:
+ 231 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
