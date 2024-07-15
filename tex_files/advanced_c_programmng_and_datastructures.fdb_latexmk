@@ -1,10 +1,13 @@
 # Fdb version 4
-["pdflatex"] 1720998627 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" "advanced_c_programmng_and_datastructures.pdf" "advanced_c_programmng_and_datastructures" 1720998630 0
-  "./chapter_2//./02_function_pointers.tex" 1720998627 3875 49377ec26aae2fb1573e85b416e8dd8c ""
-  "advanced_c_programmng_and_datastructures.aux" 1720998630 6828 44901bccfe1e0dba2e5245604176258a "pdflatex"
-  "advanced_c_programmng_and_datastructures.tex" 1720870717 1632 abcfbf1d595b8c97659c8c20ad86f4a9 ""
-  "advanced_c_programmng_and_datastructures.toc" 1720998630 4118 dddb67975383a4f2b58bb0f77223e32c "pdflatex"
-  "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" 1720870717 1632 abcfbf1d595b8c97659c8c20ad86f4a9 ""
+["pdflatex"] 1721030255 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" "advanced_c_programmng_and_datastructures.pdf" "advanced_c_programmng_and_datastructures" 1721030257 0
+  "./chapter_2//./02_00_initialization_of_the_struct_in_depth.tex" 1721029952 95 4f8776180600e036d13899aa80ddec01 ""
+  "./chapter_2//./02_00_malloc.tex" 1721030169 2629 fb179c3d7266cbff1c9cbd46259683a6 ""
+  "./chapter_2//./02_00_using_pointers_and_structures.tex" 1721030047 3873 71879d9cbe65cf04487fc12417815e6f ""
+  "./chapter_2//./02_function_pointers.tex" 1721029893 5105 e86971265eaba336a35202c012d18c36 ""
+  "advanced_c_programmng_and_datastructures.aux" 1721030257 6828 44901bccfe1e0dba2e5245604176258a "pdflatex"
+  "advanced_c_programmng_and_datastructures.tex" 1721030251 1625 6907c1523a58744a11e5799b076c13a1 ""
+  "advanced_c_programmng_and_datastructures.toc" 1721030257 4118 dddb67975383a4f2b58bb0f77223e32c "pdflatex"
+  "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" 1721030251 1625 6907c1523a58744a11e5799b076c13a1 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1699530341 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1699530739 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1699530571 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -60,8 +63,11 @@
   "c:/texlive/2023/texmf.cnf" 1699532638 713 e69b156964470283e0530f5060668171 ""
   "chapter_1/01_01_array.tex" 1718390770 12132 65443cd35939c8556adc235f28604b1c ""
   "chapter_1/01_02_structure.tex" 1718742770 19323 890d1b89080b76d5576674823068b2b5 ""
-  "chapter_2//./02_function_pointers.tex" 1720998627 3875 49377ec26aae2fb1573e85b416e8dd8c ""
-  "chapter_2/02_01_pointers.tex" 1720998475 11079 21ccc8e9681b051bf910bea17a36d79b ""
+  "chapter_2//./02_00_initialization_of_the_struct_in_depth.tex" 1721029952 95 4f8776180600e036d13899aa80ddec01 ""
+  "chapter_2//./02_00_malloc.tex" 1721030169 2629 fb179c3d7266cbff1c9cbd46259683a6 ""
+  "chapter_2//./02_00_using_pointers_and_structures.tex" 1721030047 3873 71879d9cbe65cf04487fc12417815e6f ""
+  "chapter_2//./02_function_pointers.tex" 1721029893 5105 e86971265eaba336a35202c012d18c36 ""
+  "chapter_2/02_main.tex" 1721030190 4646 34a5e2fb85fae968db2b8a6df958f1e6 ""
   "chapter_3/03_01_objects.tex" 1720866589 2139 3bf0a8777ff9e086263d1c6dd62fc888 ""
   "chapter_5/05_01_qsort_algorithm.tex" 1720870853 2742 91a873028f981c23d8d11a441a8ca225 ""
   (generated)
