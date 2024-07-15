@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1721070175 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" "advanced_c_programmng_and_datastructures.pdf" "advanced_c_programmng_and_datastructures" 1721070177 0
+["pdflatex"] 1721070231 "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" "advanced_c_programmng_and_datastructures.pdf" "advanced_c_programmng_and_datastructures" 1721070234 0
   "./chapter_2//./02_01_concepts.tex" 1721067186 1920 8854c4905b9f2d34c555a0610cf191c7 ""
   "./chapter_2//./02_02_pointers_in_action.tex" 1721067237 2137 5eb0fdfd55eeb2b0d0b7c5a5b1b3cb3a ""
   "./chapter_2//./02_03_incrementing_pointers_variable.tex" 1721067108 24 c1c171cdb514c74c47edc8c8b6323eab ""
@@ -8,9 +8,9 @@
   "./chapter_2//./02_06_using_pointers_and_structures.tex" 1721030047 3873 71879d9cbe65cf04487fc12417815e6f ""
   "./chapter_2//./02_07_initialization_of_the_struct_in_depth.tex" 1721070072 3742 9a504713f39d500b13b4f3bd004ed7d5 ""
   "./chapter_2//./02_08_function_pointers.tex" 1721070167 5139 7d66fe2f36643a151502fd39baa9bdd5 ""
-  "advanced_c_programmng_and_datastructures.aux" 1721070177 6828 8740e75bde1008eb0cf0353f47ef04fa "pdflatex"
+  "advanced_c_programmng_and_datastructures.aux" 1721070233 6828 8740e75bde1008eb0cf0353f47ef04fa "pdflatex"
   "advanced_c_programmng_and_datastructures.tex" 1721030588 1625 faafbe318b6799a5f6cf9a8d5432e1da ""
-  "advanced_c_programmng_and_datastructures.toc" 1721070177 4118 eaecf3612e899cc1f34a7f014bead1ef "pdflatex"
+  "advanced_c_programmng_and_datastructures.toc" 1721070233 4118 eaecf3612e899cc1f34a7f014bead1ef "pdflatex"
   "c:/Users/Ramtin/PycharmProjects/C/C Data Structures, Pointers, and File Systems/tex_files/advanced_c_programmng_and_datastructures.tex" 1721030588 1625 faafbe318b6799a5f6cf9a8d5432e1da ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1699530341 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1699530739 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -75,7 +75,7 @@
   "chapter_2//./02_06_using_pointers_and_structures.tex" 1721030047 3873 71879d9cbe65cf04487fc12417815e6f ""
   "chapter_2//./02_07_initialization_of_the_struct_in_depth.tex" 1721070072 3742 9a504713f39d500b13b4f3bd004ed7d5 ""
   "chapter_2//./02_08_function_pointers.tex" 1721070167 5139 7d66fe2f36643a151502fd39baa9bdd5 ""
-  "chapter_2/02_main.tex" 1721070174 651 f720b022b9482463fcc4555417471266 ""
+  "chapter_2/02_main.tex" 1721070231 685 c93d03d0d1e6fa6761488eacee91c31c ""
   "chapter_3/03_01_objects.tex" 1720866589 2139 3bf0a8777ff9e086263d1c6dd62fc888 ""
   "chapter_5/05_01_qsort_algorithm.tex" 1720870853 2742 91a873028f981c23d8d11a441a8ca225 ""
   (generated)
