@@ -1,0 +1,155 @@
+\subsection{Pointer as an Structure Member}
+Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
+ struct Person {
+         char *name;
+         int Id;
+ };
+
+ int main() {
+
+         struct Person person;
+         char buffer[32];
+
+         printf("Enter your name: ");
+         fgets(buffer, 32, stdin);
+
+         /* Allocate Storage */
+         person.name = (char *)malloc( strlen(buffer) + 1 );
+
+         if (person.name == NULL)
+         {
+                 puts("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         /* Copying the buffer to the allocated storage */
+         strcpy( person.name , buffer);
+
+
+         printf("Enter the Id: ");
+         scanf("%d", &person.Id);
+
+         printf("User Name is: %s", person.name);
+         printf("User Id is: %d \n", person.Id);
+
+         return(0);
+ }
+
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+Enter your name: Ramtin
+Enter the Id: 31415
+User Name is: Ramtin
+User Id is: 31415
+\end{lstlisting}
+
+
+
+
+\subsection{Structure Pointer}
+Code:
+In this example, the Structure is a pointer, which is called `employee`. So, in order to access its members,
+the structure pointer operator (\texttt{->}) instead of the dot notation should be used.
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+
+ int main(){
+         struct person {
+                 char name[32];
+                 int age;
+
+         };
+
+         struct person *employee;
+
+         /* Allocating storage for the POinter Structure: */
+         employee = (struct person *)malloc( sizeof(struct person) * 1 );
+         if (employee == NULL){
+                 puts("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         /*Getting the name of the Employee strucutre:*/
+         printf("Enter the Employees name: \n");
+         fgets(employee->name, 32, stdin);
+
+         /*Getting the age of the Employee strucutre:*/
+         printf("Enter the Employees age: \n");
+         scanf("%d", &employee->age);
+
+         printf("Employee's name is: %s", employee -> name);
+         printf("Employee's name is: %d \n", employee -> age );
+
+         return(0);
+ }
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+Enter your name: Ramtin
+Enter the Id: 31415
+User Name is: Ramtin
+User Id is: 31415
+\end{lstlisting}
+
+\subsection{Pointer Member of a Structure Pointer}
+Example Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
+ struct Person {
+         char *name;
+         int age;
+ };
+
+ int main() {
+
+         char buffer[32];
+         struct Person *employee;
+
+         /* Allocating Storage for the Structure: */
+         employee = (struct Person *)malloc( sizeof( struct Person) * 1);
+         if(employee == NULL){
+                 printf("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         printf("Enter the Employess's name:");
+         fgets(buffer, 32, stdin);
+
+         /* Allocating storage for the pointer member of the pointer Structure, which is named `name`*/
+         employee -> name = (char *)malloc( sizeof(buffer) );
+         if (employee -> name == NULL){
+                 printf("Unable to allocate Storage");
+                 exit(1);
+         }
+
+         /* Copying the buffer to the name: */
+         strcpy(employee->name, buffer);
+         /* Getting he age: */
+         printf("Enter your age: ");
+         scanf("%d", &employee->age);
+
+         printf("Employee's name: %s", employee->name);
+         printf("Employee's age: %d \n", employee->age);
+
+ };
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+Enter the Employess's name:Reza
+Enter your age: 22
+Employee's name: Reza
+Employee's age: 22
+\end{lstlisting}

@@ -1,0 +1,45 @@
+A variable has 5 main properties:
+\begin{itemize}
+    \item variable type (in this example variable type is: int)
+    \item variable name (in this example variable name is: variable)
+    \item variable value (in this example variable size is: 20)
+    \item variable location in the memory (in this example variable location is: 0x7ffdd65ea944)
+    \item number of bytes, that it has occupied int the memory (in this example variable occupies: 4 bytes)
+\end{itemize}
+
+\begin{lstlisting} 
+#include <stdio.h>
+
+int main(){
+        
+        int variable = 20;
+
+        printf("This variable value is: %d  \n ", variable);
+        printf("This variable occupies %lu bytes  \n", sizeof( int ) );
+        printf("This variable Address  in memory is: %p  \n", &variable);
+       
+        return(0);
+ }
+\end{lstlisting}
+
+
+Compile Result:
+\begin{lstlisting} 
+This variable value is: 20
+This variable occupies 4 bytes
+This variable Address  in memory is: 0x7ffdd65ea944
+\end{lstlisting}
+
+Keynotes about the Pointers:
+\begin{itemize}
+    \item A pointer is a variable that stores the memory address of another variable as its value.
+    \item A pointer is a variable, so its value can be changed too
+    \item A pointer can manipulate the address, which is holding.
+    \item Pointer like other variables needing a datatype, and variable name, which is prefixed with an asterisk `*`
+    \item Pointer like other variables should initialized and then used.
+    \item Pointers are assigned the address of another variable, which has an \underline{same data type}.
+    \item ampersand operator (\&) fetches variable's address.
+    \item Pointer \underline{with} * represent the \underline{Data} stored at that memory location \textbf{(Line 12)}
+    \item Pointer \underline{without} * represent the \underline{memory address}, in which the data is stored on.\textbf{(Line 9)}
+\end{itemize}
+

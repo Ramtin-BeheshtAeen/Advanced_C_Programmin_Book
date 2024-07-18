@@ -1,0 +1,218 @@
+function pointer will save the memory address of an function
+Code:
+\begin{lstlisting} 
+ #include <stdio.h>
+
+ void function(int x)
+ {
+         printf("X: %d \n", x);
+ }
+
+ int main(){
+
+         void (*function_pointer)(int);
+
+         function_pointer = &function;
+
+         (*function_pointer)(4);
+
+         return(0);
+ }
+\end{lstlisting}
+
+Compile Results:
+\begin{lstlisting} 
+X: 4
+\end{lstlisting}
+
+
+\begin{lstlisting} 
+ #include <stdio.h>
+
+ double add(double x, double y){
+         return x + y;
+ }
+
+ int main(){
+
+         double (*add_function_ptr) (double, double);
+
+         add_function_ptr = add;
+
+         double result = add_function_ptr(20, 10);
+
+         printf("result: %f \n", result);
+
+         return 0;
+ }
+\end{lstlisting}
+
+\subsection{Array of pointers to functions}
+
+\begin{lstlisting} 
+ #include <stdio.h>
+
+ double add(int x, int y){
+         return x + y;
+ }
+
+ double subtract(int x, int y){
+         return x - y;
+ }
+
+ double multiply(int x, int y){
+         return x * y;
+ }
+
+ double divide(int x, int y){
+         return x / y;
+ }
+
+
+ int main(){
+         double (*opration_array[]) (int, int) = {add, subtract, multiply, divide};
+
+         double result = (*opration_array[2])(3, 20);
+
+         printf("result: %f \n", result);
+
+ }
+\end{lstlisting}
+
+\begin{lstlisting} 
+result: 60.000000
+\end{lstlisting}
+
+\subsection{A Function That Return a Pointer To a Function:}
+\begin{lstlisting} 
+#include <stdio.h>
+
+ double add(int x, int y){
+         return x + y;
+ }
+
+ double subtract(int x, int y){
+         return x - y;
+ }
+
+ double multiply(int x, int y){
+         return x * y;
+ }
+
+ double divide(int x, int y){
+         return x / y;
+ }
+
+
+ void ( *select_operation() ) {
+         int option = 0;
+         printf("Select an operation: \n");
+         printf("Enter 1 for Subtracting\n");
+         printf("Enter 2 for adding\n");
+         printf("Enter 3 for multipling\n");
+         printf("Enter 4 for dividing\n");
+
+         scanf("%d", &option);
+
+         switch (option){
+                 case 1: return subtract;
+                 case 2: return add;
+                 case 3: return multiply;
+                 case 4: return divide;
+                 default: return NULL;
+
+         }
+
+ }
+
+ int main(){
+
+         double (*operation) (int, int) = select_operation();
+         printf("result: %f \n", operation(20, 5));
+ }
+\end{lstlisting}
+Compile Result:
+\begin{lstlisting} 
+Select an operation:
+Enter 1 for Subtracting
+Enter 2 for adding
+Enter 3 for multipling
+Enter 4 for dividing
+3
+result: 100.000000
+\end{lstlisting}
+
+\subsection{A Function That Get a Pointer To a Function As an Input:}
+int this example we have an function(`is\_forzen`), which will check wether some input temperature
+will cause frozen water or not, but we don't know exactly wether the temperature is in
+Celsius or Fahrenheit, so this function will accept a pointer to a function.
+parameter `temperature\_check` is a pointer to a function which accept an integer
+as an argument and return true or false, thus we can use multiple function to checkout whether
+is it frozen or not. As its illustrated in example code below two function are used. one of them
+called `temperature\_check\_in\_celsius` and other one is `temperature\_check\_in\_fahrenheit`.  
+In other word, we can change the behavior of `is\_forzen` function by changing the function, that we are 
+passing in to it.Depending on function the program will check is it frozen based on a Celsius or
+Fahrenheit. 
+\newline
+
+functions like `temperature\_check` are known as \textbf{callback functions}, why they will be used or called later in the 
+body of other functions to perform some operations.
+
+
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdbool.h>
+
+ bool temperature_check_in_celsius(int temperature){
+         if (temperature <= 0) return true;
+         else return false;
+ }
+
+
+ bool temperature_check_in_fahrenheit(int temperature){
+         if (temperature <= 32) return true;
+         else return false;
+ }
+
+
+ void is_forzen ( bool (*temperature_check) (int) ){
+         int temperature;
+         printf("Enter the temperature: ");
+         scanf("%d", &temperature);
+
+         if(temperature_check(temperature)){
+                 printf("It's frozen");
+         }
+         else{
+                 printf("It's NOT frozen! \n");
+         }
+ }
+
+
+ int main(){
+         printf("Celsius \n");
+         is_forzen(temperature_check_in_celsius);
+
+         printf("Fahrenheit \n");
+         is_forzen(temperature_check_in_fahrenheit);
+
+ }
+\end{lstlisting}
+
+
+Compile Result:
+\begin{lstlisting} 
+Celsius
+Enter the temperature: 10
+Its NOT frozen!
+Fahrenheit
+Enter the temperature: 10
+Its frozen
+\end{lstlisting}
+
+⚠  Notes:
+\begin{enumerate}
+        \item Space in memory is not allocated for function pointers because they are pointers to instructions and not memory address.
+        \item Pointer arithmetic is not done with function pointers.
+\end{enumerate}
+

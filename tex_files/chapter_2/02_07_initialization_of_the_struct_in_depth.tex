@@ -1,0 +1,134 @@
+\subsection{Manual Assignment}
+
+
+\begin{lstlisting}
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
+ struct person{
+         char name[50];
+         int age;
+ };
+
+ struct person *create_person(const char *name, int age){
+         struct person *p = malloc( sizeof(struct person) );
+         if ( p == NULL ) {
+                 return NULL;
+         }
+
+         strncpy(p->name, name, sizeof(p->name) - 1 );
+         p->name[sizeof(p->name) - 1] = '\0'; //Makeing sure that string ends up with null
+         p->age = age;
+
+         return p;
+
+ }
+
+ int main() {
+         struct person *person_instance = create_person("Ramtin", 22);
+
+         if ( person_instance != NULL ){
+                 printf("Person created: %s, %d years old", person_instance->name, person_instance->age);
+                 free(person_instance);
+         }
+
+         return 0;
+ }
+
+\end{lstlisting}
+
+Compile Result:
+\begin{lstlisting}
+Person created: Ramtin, 22 years old
+\end{lstlisting}
+
+
+
+
+create\_person function is intended to create and return a pointer to a struct person.
+\newline
+\begin{verbatim}
+    struct person *create_person(const char *name, int age){
+        ...
+    }
+\end{verbatim}
+The create\_person function is intended to create and initialize a new struct person instance.
+Here is why such a function is useful:
+
+
+\begin{enumerate}
+\item \textbf{Encapsulation: } By using a function to create the structure, you encapsulate the creation logic. This makes the code cleaner and easier to maintain.
+\item \textbf{Initialization: } The function can initialize the structure\textquotesingle s members (like n\_item, start, end, and the data array)
+ to appropriate values, ensuring the structure is in a valid state when it\textquotesingle s created.
+\item \textbf{Memory Allocation: } If the data array needs to be dynamically allocated based on the value of n, the function can handle this allocation. This is especially important for the flexible array member data[].
+\end{enumerate}
+
+
+\subsection{Using memset}
+
+
+
+\subsection{Designated Initializers}
+code:
+\begin{lstlisting}
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+
+ struct Date {
+         int month;
+         int year;
+ };
+
+ struct person {
+         char name[50];
+         int age;
+         int id;
+         struct Date birthdate;
+ };
+
+ struct person *create_person(const char *name, int age, int id, int birthdate_month, int birthdate_year){
+         struct person *p = malloc( sizeof(struct person) );
+         if (p == NULL){
+                 return NULL;
+         }
+
+         *p = (struct person) {
+                 .age           = age,
+                 .id            = id,
+                 .birthdate     = {.month = birthdate_month, .year = birthdate_year}
+
+         };
+
+         strncpy(p->name, name, sizeof(p->name) - 1 );
+         p -> name[sizeof(p->name) - 1] = '\0'; //null-termination
+
+         return p;
+
+ }
+
+ int main() {
+     struct person *p = create_person("Alice", 30, 1, 5, 1990);
+     if (p != NULL) {
+         printf("Person created: %s, %d years old, ID: %d, Birthdate: %d/%d\n", p->name, p->age, p->id, p->birthdate.month, p->birthdate.year);
+         free(p);
+     }
+     return 0;
+ }               
+\end{lstlisting}
+
+This part of the code is called Designated Initialization:
+\begin{verbatim}
+    *p = (struct person) {
+        .age           = age,
+        .id            = id,
+        .birthdate     = {.month = birthdate_month, .year = birthdate_year}
+    
+    };
+\end{verbatim}
+
+Compile Result:
+\begin{lstlisting}
+Person created: Alice, 30 years old, ID: 1, Birthdate: 5/1990
+\end{lstlisting}

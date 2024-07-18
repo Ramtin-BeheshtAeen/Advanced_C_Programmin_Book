@@ -1,0 +1,47 @@
+\subsection{concepts}
+\begin{itemize}
+\item Argument of malloc function is the number of bytes desired.
+\item Return value is a memory location or the NULL constant
+\item Dont forgot to import <stdlib> header File
+\item Pointer will be used to access the memory chunck allocated by malloc()
+\item We use the free() function to release the memory
+
+\item at line .... in `(char *)malloc...` section we are type casting the result 
+as an character pointer which should match the variable declaration at line ....
+\end{itemize}
+Here’s an example of using malloc with pointers:
+\begin{lstlisting} 
+ #include <stdio.h>
+ #include <stdlib.h>
+
+ int main(){
+
+         char *buffer;
+
+         buffer = (char *)malloc( sizeof(char) * 128 );
+         if (buffer == NULL){
+                 puts("Unable to allocate memory");
+                 exit(1);
+         }
+         puts("Buffer allocated");
+         free(buffer);
+         puts("Buffer freed");
+ }
+\end{lstlisting}
+   
+Compile Results:
+\begin{lstlisting} 
+Buffer allocated
+Buffer freed
+\end{lstlisting}
+   
+
+\subsection{Why do we use `malloc` when working with pointers?}
+In C programming, malloc is used for dynamic memory allocation, which means allocating memory at runtime rather than at compile time. Here are some reasons why malloc is used with pointers:
+\begin{enumerate}
+    \item \textbf{Lifetime of Data:} When you allocate memory using malloc, the data persists beyond the scope of the function in which it was created. This is useful when you need to return a pointer to a data structure from a function or when the data needs to be accessed by multiple functions throughout the program1.
+    \item \textbf{Variable Size:} malloc allows you to allocate memory of a size that is determined at runtime. This is particularly useful when the size of the data structure cannot be known until the program is running2.
+    \item \textbf{Flexibility:} With malloc, you can allocate and deallocate memory as needed during the execution of your program. This provides flexibility in managing memory usage, especially for large or complex data structures2.
+    \item \textbf{No Stack Overflow:} Allocating large amounts of memory on the stack can lead to stack overflow.malloc allocates memory on the heap, which typically has a much larger size limit than the stack2.
+    \item \textbf{Dynamic Data Structures:} Many data structures like linked lists, trees, and graphs are dynamic and require memory to be allocated and deallocated as elements are added or removedmalloc is essential for implementing these structures2.
+\end{enumerate}
